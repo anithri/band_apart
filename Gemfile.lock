@@ -1,0 +1,44 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    cairo (1.14.3)
+      pkg-config (>= 1.1.5)
+    gdk_pixbuf2 (3.0.8)
+      glib2 (= 3.0.8)
+    glib2 (3.0.8)
+      pkg-config
+    mercenary (0.3.6)
+    mini_portile2 (2.0.0)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
+    pango (3.0.8)
+      cairo (>= 1.14.0)
+      glib2 (= 3.0.8)
+    pkg-config (1.1.7)
+    rake (11.1.2)
+    roo (2.3.2)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
+    rsvg2 (3.0.8)
+      cairo (>= 1.12.8)
+      gdk_pixbuf2 (= 3.0.8)
+    ruby-progressbar (1.8.0)
+    rubyzip (1.2.0)
+    squib (0.9.0)
+      cairo (~> 1.14.3)
+      mercenary (~> 0.3.4)
+      nokogiri (~> 1.6.7)
+      pango (~> 3.0.1)
+      roo (~> 2.3.0)
+      rsvg2 (~> 3.0.0)
+      ruby-progressbar (~> 1.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rake
+  squib
+
+BUNDLED WITH
+   1.12.1
