@@ -1,0 +1,129 @@
+---
+icon_one:
+  height: 64
+  width: 64
+  x: 90
+  y: 140
+icon_two:
+  height: 64
+  width: 64
+  x: 90
+  y: 210
+icon_three:
+  height: 64
+  width: 64
+  x: 90
+  y: 280
+icon_four:
+  height: 64
+  width: 64
+  x: 90
+  y: 350
+
+
+#This layout inspired by popular fantasy games
+title:
+  x: 90
+  y: 90
+  width: 635
+  height: 50
+  align: center
+
+art:
+  x: 75
+  y: 150
+  width: 675
+  height: 520
+
+power:
+  x: 100
+  y: 675
+  width: 625
+  height: 275
+  valign: middle
+  align: center
+  radius: 16
+  font_size: 18
+desc: # alias
+  extends: power
+
+power_frame:
+  extends: power
+  radius: 16
+  fill_color: '#e8e8e8'
+type:
+  x: 90
+  y: 955
+  width: 645
+  height: 50
+  align: center
+  markup: true
+  font: "Sans Italic 14"
+
+lower_right:
+  x: 675
+  y: 975
+  width: 75
+  height: 75
+  font_size: 18
+  valign: bottom
+  align: right
+lr: #alias
+  extends: lower_right
+
+lower_left:
+  x: 90
+  y: 960
+  width: 75
+  height: 75
+  font_size: 20
+  valign: bottom
+  align: left
+ll: # alias
+  extends: lower_left
+
+fortune:
+  x: 610
+  y: 150
+  width: 128
+  height: 128
+  font_size: 60
+  align: center
+  valign: middle
+fortune_frame:
+  x: 674
+  y: 214
+  radius: 64
+  stroke_color: black
+  fill_color: gold
+copyright:
+  x: 75
+  y: 1025
+  width: 675
+  height: 25
+  font_size: 16
+  align: center
+  valign: bottom
+#aliases for copyright
+copy:
+  extends: copyright
+credit:
+  extends: copyright
+credits:
+  extends: copyright
+
+# The "cut line", without rounded corners
+cut:
+  x: 37.5
+  y: 37.5
+  width: 750
+  height: 1050
+
+# The "safe zone" as defined by TheGameCrafter poker cards
+safe:
+  x: 75
+  y: 75
+  width: 675
+  height: 975
+  radius: 16
+  dash: 3 3
