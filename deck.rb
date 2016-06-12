@@ -1,6 +1,7 @@
 require 'squib'
 
 data = Squib.csv file: 'primary_cards.csv'
+data['card_name'] = data['tier'].map{|t| "#{t.downcase.gsub(/\s+/,'')}_card_"}
 Squib::Deck.new cards: data['title'].size, layout: 'primary_card_layout.yml' do
   background color: data['background_color']
   rect layout: 'cut' # cut line as defined by TheGameCrafter
@@ -17,6 +18,6 @@ Squib::Deck.new cards: data['title'].size, layout: 'primary_card_layout.yml' do
   circle layout: 'fortune_frame'
   text layout: 'fortune', str: data['fortune']
   text layout: 'lower_left', str: data['tier']
-  save_png
+  save_png prefix: data['card_name']
   save_pdf file: 'cards.pdf'
 end
