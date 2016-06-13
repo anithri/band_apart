@@ -30,22 +30,21 @@ TIER_STRENGTHS = [
 ]
 
 POWER_DEFINITIONS = {
-  draw_card:     'Draw ? Card(s).',
-  replay:        'Use a power of the card on top of the discard pile',
-  claim_card:    'Claim a card of same color from the top of the discard pile',
+  overtime:      'Use the power of the top card of the discard pile.',
+  bank_it:       'Take the top card of the discard pile and bank it.',
+  headhunting:   'Recruit into your hand for no bonus and using the top card of the discard pile for fortune and color.',
   hand_in_till:  'You gain 10% of the bands money at the end of the tour.',
-  synergy:       'You may pay to recruit any one card as they if were any type',
-  cash_in:       'You may recruit a card and immediately bank it.',
+  synergy:       'Copy values of another card at scoring time.',
+  cash_in:       'Count the highest fortune values of this color when scoring fortune and tour end.',
   endorsement:   'Bank this card after recruiting with it.',
   steal_thunder: 'Claim a card of the same color from another members bank.',
   headline:      'Score Two victory points.',
-
 }
 
 # 4, 5, 4, 4, 2
 
-tier_1_powers = [:draw_card, :replay, :claim_card, :hand_in_till] * 2
-tier_2_powers = [:draw_card, :replay, :claim_card, :hand_in_till, :cash_in] * 2
+tier_1_powers = [:overtime, :bank_it, :headhunting, :hand_in_till] * 2
+tier_2_powers = [:overtime, :bank_it, :headhunting, :hand_in_till, :cash_in] * 2
 tier_3_powers = [:cash_in, :synergy, :synergy, :endorsement] * 2
 tier_4_powers = [:endorsement, :steal_thunder, :headline] * 2
 tier_5_powers = [:headline, :steal_thunder] * 2
@@ -61,9 +60,7 @@ POWERS = Hash.new do |h, k|
 end
 
 def recruit_msg(type)
-  %{You may recruit anyone for normal price.  You gain +2 money for #{type}
-recruits.  You may spend 2 extra to recruit into your hand instead of the
-discard pile.}.gsub(/\n/,' ')
+  "  Recruit +2 for #{type}"
 end
 
 def power_msg(power_lvl, type)
@@ -92,10 +89,10 @@ def gen_card(tier, pri, pri_str, sec, sec_str)
   icons     = Array.new(pri_str) { pri } + Array.new(sec_str) { sec }
   icons.map! { |i| "#{i}.svg" }
   {
-    title:            FFaker::Job.title,
+    title:            FFaker::Name.name(),
     picture:          AVATARS.sample,
     background_color: BACKGROUND_COLORS[pri],
-    flavor:           flavor_text,
+    flavor:           flavor_text.gsub("&","&amp;"),
     tier:             tier.zero? ? 'Start' : "Tour #{tier}",
     fortune:          power_str,
     power:            power_msg(power_str, pri),
